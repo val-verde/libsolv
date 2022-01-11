@@ -1,6 +1,6 @@
-PROJECT (libsolv)
+CMAKE_MINIMUM_REQUIRED (VERSION 3.20.0)
 
-CMAKE_MINIMUM_REQUIRED (VERSION 2.8.5)
+PROJECT (libsolv)
 
 OPTION (ENABLE_STATIC "Build a static version of the libraries?" OFF)
 OPTION (DISABLE_SHARED "Do not build a shared version of the libraries?" OFF)
@@ -396,9 +396,9 @@ IF (MSVC)
   add_definitions(-D_CRT_SECURE_NO_WARNINGS)
 ELSE ()
   set (CMAKE_C_FLAGS                "${CMAKE_C_FLAGS} -Wall")
-  set (CMAKE_C_FLAGS_RELEASE        "${CMAKE_C_FLAGS} -O3")
-  set (CMAKE_C_FLAGS_RELWITHDEBINFO "${CMAKE_C_FLAGS} -g -O3")
-  set (CMAKE_C_FLAGS_DEBUG          "${CMAKE_C_FLAGS} -g3 -O0")
+  set (CMAKE_C_FLAGS_RELEASE        "${CMAKE_C_FLAGS_RELEASE} -O3")
+  set (CMAKE_C_FLAGS_RELWITHDEBINFO "${CMAKE_C_FLAGS_RELWITHDEBINFO} -g -O3")
+  set (CMAKE_C_FLAGS_DEBUG          "${CMAKE_C_FLAGS_DEBUG} -g3 -O0")
 ENDIF ()
 
 # set system libraries
